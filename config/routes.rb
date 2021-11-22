@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  devise_for :users
+  root to: 'centres#index'
+  resources :centres do
+    resources :bookings, only: %i[new create]
+  end
+  resources :bookings, only: %i[update edit destroy show index]
+  resources :dogs, only: %i[]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
