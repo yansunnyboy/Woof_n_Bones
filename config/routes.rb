@@ -5,6 +5,6 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[new create]
   end
   resources :bookings, only: %i[update edit destroy show index]
-  resources :dogs, only: %i[]
+  resources :dogs
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
