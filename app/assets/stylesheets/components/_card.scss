@@ -88,13 +88,15 @@ body {
   width: 260px;
   background-color: white;
   border-radius: 50%;
-  display: inline-block;
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // position: relative;
 }
- .image {
-  display: inline-block;
-  position: absolute;
-  top: 60px;
-  left: 60px;
-}
+//  .image {
+//   display: inline-block;
+//   position: absolute;
+//   top: 60px;
+//   left: 60px;
+// }
 }
