@@ -5,5 +5,7 @@ class CentresController < ApplicationController
 
   def show
     @centres = Centre.find(params[:id])
+    @dog = Dog.find(params[:id])
+    @users = User.all
   end
 end
