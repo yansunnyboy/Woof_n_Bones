@@ -1,9 +1,17 @@
-<div class="navbar-lewagon">
-  Centres
-</div>
 
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<div class="footer">
-<h2>footer</h2>
-</div>
+  <ul>
+  <% @centres.each do |centre| %>
+
+
+<div class="card">
+  <div class="title"><%= centre.name%></div>
+  <div class="features">
+    <p><%= centre.location%>
+    show_centre_path(centre)
+
+    </p>
+  </div><!--/features-->
+<%= link_to "Book Now", centre_path(centre) , class:"btn" %>
+</div><!--/card-->
+
+  <% end %>
