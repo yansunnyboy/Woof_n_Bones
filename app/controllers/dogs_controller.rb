@@ -1,5 +1,4 @@
 class DogsController < ApplicationController
-
   def index
     @dogs = Dog.all
   end
@@ -16,8 +15,6 @@ class DogsController < ApplicationController
     else
       render :new
     end
-
-
   end
 
   private

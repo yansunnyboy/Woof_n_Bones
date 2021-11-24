@@ -1,6 +1,31 @@
 <div class="navbar-lewagon">
-
 </div>
 
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="height: 500px; background-color: #EDE6CB">
+  <div class="container">
+    <div class="center">
+      <p style="text-align:center;"> Enter your address here: </p>
+      <input class="form-control mr-sm-2" type="search" aria-label="Search">
+      <%= link_to 'Search', centres_path, class: "btn btn-outline-secondary my-2 my-sm-0" %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="card">
+  <div class="icon">
+   <span class="dot" style="background-color:#393E5B">
+    <%= image_tag "icons8-dog-park-100.png", class:"image", alt: "dog image" %>
+    </span>
+    </div><!--/icon-->
+  <div class="title">DAYCARE</div>
+  <div class="features">
+    <p>
+     Have you got a day care centre of home
+were etc etc etc  got a day care centre of home
+were etc etc etc got a day care centre of home
+were etc etc etc
+    </p>
+  </div><!--/features-->
+ <a href="#" class="btn">MANAGE DAYCARE</a>
+</div><!--/card-->
+</div>
