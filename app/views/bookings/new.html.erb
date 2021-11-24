@@ -1,0 +1,17 @@
+<div class="text-center"><h1>Add a booking</h1></div>
+
+<div class="container py-5">
+  <div class="row col-9 m-auto">
+    <div class="frame col-7 offset-lg-3 shadow m-auto">
+      <div class="rounded p-3 m-auto d-inline-blocks">
+        <h3>Add a booking</h3>
+        <%= simple_form_for [@user, @booking] do |f| %>
+          <%= f.input :centre_id, placeholder: 'CENTRE' %>
+          <%= f.input :dog_id, placeholder: 'DOG' %>
+          <%= f.input :booking_date, placeholder: 'DATE' %>
+          <%= f.submit class: 'btn btn-flat' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
