@@ -1,22 +1,22 @@
 
-
-<h2><%= @centre.name %></h2>
-
 <div class="container-fluid bg-primary ">
-  ...<h2><%= @centre.name %></h2>
+<div class="bg-primary d-flex">
+  <h2><%= @centre.name %></h2>
+  <div class="m-5">
+    <div class="icon">
+      <span class="dot" style="background-color:#393E5B">
+        <%= image_tag "icons8-dog-park-100.png", class:"image", alt: "dog image" %>
+      </span>
+    </div>
+  </div>
 
-
-<div class="d-flex align-items-start flex-column" style="height: 200px;">
-  <div class="mb-auto p-2">Flex item</div>
-  <div class="p-2">Flex item</div>
-  <div class="p-2">Flex item</div>
-</div>
 
 <%= simple_form_for([@centre, @booking]) do |f| %>
   <%= f.association :dog, collection: Dog.where(user: current_user) %>
   <%= f.input :booking_date, as: :string, input_html:{id: 'flatpickr'} %>
   <%= f.submit %>
 <% end %>
+</div>
 
 
 </div>
