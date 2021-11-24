@@ -1,7 +1,9 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show edit update destroy]
   def index
-    @bookings = Booking.all
+    @bookings = Booking.joins(:dog).where(dog: { user_id: current_user.id })
+    @centres = Centre.all
+    @dogs = Dog.where(user_id: current_user.id)
   end
 
   def show
@@ -15,8 +17,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.centre = Centre.find(params[:centre_id])
     if @booking.save
-      redirect_to root_path
-    # redirect_to booking_path(@booking.id)
+      # redirect_to root_path
+      redirect_to bookings_path
     else
       puts "ERROR #{@booking.errors.full_messages}"
       render "centres/show"
