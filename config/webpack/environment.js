@@ -17,5 +17,3 @@ environment.plugins.prepend('Provide',
 module.exports = environment
 
 
-// Data Picker Initialization
-$('.datepicker').datepicker();

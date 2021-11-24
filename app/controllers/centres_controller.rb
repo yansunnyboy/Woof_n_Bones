@@ -6,8 +6,10 @@ class CentresController < ApplicationController
   end
 
   def show
+    @centre = Centre.find(params[:id])
     @dog = Dog.find(params[:id])
     @users = User.all
+    @booking = Booking.new
   end
 
   def new

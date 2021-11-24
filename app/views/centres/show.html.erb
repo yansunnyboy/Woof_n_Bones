@@ -3,29 +3,8 @@
 <h2><%= @centre.name %></h2>
 
 <div class="container-fluid bg-primary ">
-  ...<h2><%= @centres.name %></h2>
+  ...<h2><%= @centre.name %></h2>
 
-<div class="custom-control custom-checkbox">
-<% @users.each do |user|%>
-<% if user.id == @dog[:user_id] %>
-
-
-  <input type="checkbox" class="custom-control-input" id="customCheck1">
-  <label class="custom-control-label" for="customCheck1"><h2><%= @dog.name %> </h2></label>
-
- <% end %>
-<% end %>
-</div>
-
-<div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker">
-  <input placeholder="Select date" type="text" id="example" class="form-control">
-  <label for="example">Try me...</label>
-  <i class="fas fa-calendar input-prefix" tabindex=0></i>
-</div>
-
-<div class="card">
-<a href="#" class="btn">Book Now</a>
-</div>
 
 <div class="d-flex align-items-start flex-column" style="height: 200px;">
   <div class="mb-auto p-2">Flex item</div>
@@ -33,9 +12,11 @@
   <div class="p-2">Flex item</div>
 </div>
 
-<div class="d-flex align-items-end flex-column" style="height: 200px;">
-  <div class="p-2">Flex item</div>
-  <div class="p-2">Flex item</div>
-  <div class="mt-auto p-2">Flex item</div>
-</div>
+<%= simple_form_for([@centre, @booking]) do |f| %>
+  <%= f.association :dog, collection: Dog.where(user: current_user) %>
+  <%= f.input :booking_date, as: :string, input_html:{id: 'flatpickr'} %>
+  <%= f.submit %>
+<% end %>
+
+
 </div>
