@@ -1,6 +1,16 @@
-<div class="container navabar-lewagon">
-  <p> Enter your address here: </p>
-</div>
-<div class="footer" style='background-color: #EDE6CB'>
-  <h2>WoofNBones</h2>
-</div>
+
+  <ul>
+  <% @centres.each do |centre| %>
+
+
+<div class="card">
+  <div class="title"><%= centre.name%></div>
+  <div class="features">
+    <p><%= centre.location%>
+
+    </p>
+  </div><!--/features-->
+<%= link_to "Book Now", centre_path(centre) , class:"btn" %>
+</div><!--/card-->
+
+  <% end %>

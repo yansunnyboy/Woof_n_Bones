@@ -1,0 +1,14 @@
+
+
+<h2><%= @centres.name %></h2>
+
+
+<% @users.each do |user|%>
+<% if user.id == @dog[:user_id] %>
+<h2><%= @dog.name %> </h2>
+  <% end %>
+<% end %>
+
+<div class="card">
+<a href="#" class="btn">Book Now</a>
+</div>
