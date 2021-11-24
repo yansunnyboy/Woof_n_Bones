@@ -1,18 +1,32 @@
 
-  
+ <div class="container-fluid bg-primary ">
+  <div class="bg-primary d-flex">
+    <div class="m-5">
+      <div class="icon">
+        <span class="dot" style="background-color:#393E5B">
+          <%= image_tag "icons8-dog-park-100.png", class:"image", alt: "dog image" %>
+        </span>
+      </div>
+    </div>
+    <div class="card-container">
+    <% @centres.each do |centre| %>
+      <div class="card w-75">
+        <div class="card-body">
+          <h5 class="card-title"><%= centre.name%></h5>
+          <p class="card-text"><%= centre.location%></p>
+          <div class="d-flex ">
+              <%= link_to "Book Now", centre_path(centre) , class:"btn" %>
+          </div>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+
 <ul>
-  <% @centres.each do |centre| %>
 
 
-<div class="card">
-  <div class="title"><%= centre.name%></div>
-  <div class="features">
-    <p><%= centre.location%>
 
-    </p>
-  </div><!--/features-->
-<%= link_to "Book Now", centre_path(centre) , class:"btn" %>
-</div><!--/card-->
 
-  <% end %>
+</div>
 </div>
