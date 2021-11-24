@@ -16,8 +16,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.centre = Centre.find(params[:centre_id])
     if @booking.save
-      redirect_to root_path
-    # redirect_to booking_path(@booking.id)
+      # redirect_to root_path
+    redirect_to bookings_path
     else
       puts "ERROR #{@booking.errors.full_messages}"
       render "centres/show"
@@ -41,7 +41,7 @@ class BookingsController < ApplicationController
   def set_booking
     @booking = Booking.find(params[:id])
   end
-  
+
   def booking_params
     params.require(:booking).permit(:dog_id, :centre_id, :booking_date)
   end
