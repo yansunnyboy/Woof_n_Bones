@@ -3,11 +3,14 @@ class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
   end
+
   def show
   end
+
   def new
     @booking = Booking.new
   end
+
   def create
     @booking = Booking.new(booking_params)
     @booking.centre = Centre.find(params[:centre_id])
@@ -29,12 +32,16 @@ class BookingsController < ApplicationController
     @booking.destroy
     redirect_to bookings_path
   end
+
   def edit
   end
+
   private
+
   def set_booking
     @booking = Booking.find(params[:id])
   end
+
   def booking_params
     params.require(:booking).permit(:dog_id, :centre_id, :booking_date)
   end
