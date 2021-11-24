@@ -1,4 +1,6 @@
 class DogsController < ApplicationController
+  before_action :set_dog, only: %i[show edit update destroy]
+
   def index
     @dogs = Dog.all
   end
@@ -17,12 +19,29 @@ class DogsController < ApplicationController
     end
   end
 
+  def update
+    @dog.update(dog_params)
+    redirect_to dog_path(@dog.id)
+  end
+
+  def destroy
+    @dog.destroy
+    redirect_to dogs_path
+  end
+
+  def edit
+  end
+
+  def show
+  end
+
   private
+
+  def set_dog
+    @dog = Dog.find(params[:id])
+  end
 
   def dog_params
     params.require(:dog).permit(:name, :size, :vaccination_status, :user_id, :disexed, :breed, :diet)
   end
 end
-
-
-    # Only allow a list of trusted parameters through.
