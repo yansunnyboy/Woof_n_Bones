@@ -1,5 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show edit update destroy]
+
+
   def index
     @bookings = Booking.joins(:dog).where(dog: { user_id: current_user.id })
     @centres = Centre.all
@@ -7,6 +9,9 @@ class BookingsController < ApplicationController
   end
 
   def show
+    # @bookings = Booking.all
+    # @centres = Centre.where(dog_id: {current_user.id)
+    # @dogs = Dog.joins(:booking).where(booking: {})
   end
 
   def new
