@@ -1,32 +1,45 @@
-
- <div class="container-fluid bg-primary ">
+<div class="container-fluid bg-primary ">
+  <h2 class="p-5 mb-0 pb-0">Daycares</h2>
   <div class="bg-primary d-flex">
     <div class="m-5">
       <div class="icon">
         <span class="dot" style="background-color:#393E5B">
           <%= image_tag "icons8-dog-park-100.png", class:"image", alt: "dog image" %>
         </span>
+        <% if user_signed_in? %>
+          <div class="card w-75">
+            <%= link_to "Add your Daycare!", new_centre_path, class:"btn btn-success" %>
+          </div>
+        <% end %>
       </div>
     </div>
-    <div class="card-container">
-    <% @centres.each do |centre| %>
-      <div class="card w-75">
-        <div class="card-body">
-          <h5 class="card-title"><%= centre.name%></h5>
-          <p class="card-text"><%= centre.location%></p>
-          <div class="d-flex ">
-              <%= link_to "Book Now", centre_path(centre) , class:" btn btn-primary" %>
+      <div class="card-container">
+      <% @centres.each do |centre| %>
+        <% if user_signed_in? == false %>
+          <div class="card w-75">
+            <div class="card-body">
+              <h5 class="card-title"><%= centre.name%></h5>
+              <p class="card-text"><%= centre.location%></p>
+              <div class="d-flex">
+                  <%= link_to "Book Now", centre_path(centre), class:"btn btn-success" %>
+              </div>
+            </div>
           </div>
+        <% elsif user_signed_in? && (centre.user_id == @user.first.id) %>
 
-        </div>
-      </div>
-    <% end %>
+          <div class="card w-75">
+            <div class="card-body">
+              <h5 class="card-title"><%= centre.name%></h5>
+              <p class="card-text"><%= centre.location%></p>
+              <div class="d-flex">
+                  <%= link_to "View Bookings", centre_path(centre) , class:"btn btn-info" %>
+                  <%= link_to "Edit Daycare", edit_centre_path(centre.id) , class:"btn btn-warning" %>
+                  <%= link_to "Delete Daycare", centre_path(centre.id), method: :delete , class:"btn btn-danger" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
-
-<ul>
-
-
-
-
-</div>
 </div>

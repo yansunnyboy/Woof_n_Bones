@@ -2,6 +2,7 @@ class CentresController < ApplicationController
   before_action :set_centre, only: %i[show edit update destroy]
 
   def index
+    @user = User.where(id: current_user.id) if user_signed_in?
     @centres = Centre.all
   end
 
@@ -19,7 +20,7 @@ class CentresController < ApplicationController
   def create
     @centre = Centre.new(centre_params)
     @centre.save
-    redirect_to centre_path(@centre.id)
+    redirect_to user_centres_path(user_id: current_user.id)
   end
 
   def update

@@ -68,7 +68,7 @@ body {
       width: 100px;
       height: 100px;
       path {
-        fill: $color-four;
+       fill: $color-four;
       }
     }
   }
@@ -88,7 +88,6 @@ body {
   }
   .btn {
     display: block;
-    background: $color-four;
     color: white;
     padding: 15px 20px;
     margin: 20px 0;
@@ -96,9 +95,9 @@ body {
     box-shadow: rgba(0,0,0,0.9);
     transition: all 200ms ease-in-out;
     text-decoration: none;
-    &:hover {
-      background: $color-three;
-    }
+    // &:hover {
+    //   background: $color-three;
+    // }
   }
 //  .image {
 //   display: inline-block;
