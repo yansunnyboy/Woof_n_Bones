@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :centres do
     resources :bookings, only: %i[new create]
+    member do
+      get :bookings
+    end
   end
   authenticated :user do
     resources :bookings, only: %i[update edit destroy show index]

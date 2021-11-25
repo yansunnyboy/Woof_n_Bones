@@ -1,4 +1,5 @@
 class Centre < ApplicationRecord
   belongs_to :user
-  CATEGORIES = ["Ruby", "JavaScript", "CSS"]
+  has_many :bookings, dependent: :destroy
+  CATEGORIES = ["Small", "Medium", "Large"]
 end

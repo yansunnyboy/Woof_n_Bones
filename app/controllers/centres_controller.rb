@@ -1,5 +1,5 @@
 class CentresController < ApplicationController
-  before_action :set_centre, only: %i[show edit update destroy]
+  before_action :set_centre, only: %i[show edit update destroy bookings]
 
   def index
     @user = User.where(id: current_user.id) if user_signed_in?
@@ -34,6 +34,10 @@ class CentresController < ApplicationController
   end
 
   def edit
+  end
+
+  def bookings
+    @bookings = @centre.bookings
   end
 
   private
