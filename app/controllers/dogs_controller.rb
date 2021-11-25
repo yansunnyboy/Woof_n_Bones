@@ -2,7 +2,7 @@ class DogsController < ApplicationController
   before_action :set_dog, only: %i[show edit update destroy]
 
   def index
-    @dogs = Dog.all
+    @dogs = Dog.where(user_id: current_user.id)
   end
 
   def new
@@ -21,7 +21,7 @@ class DogsController < ApplicationController
 
   def update
     @dog.update(dog_params)
-    redirect_to dog_path(@dog.id)
+    redirect_to dogs_path
   end
 
   def destroy
@@ -33,6 +33,7 @@ class DogsController < ApplicationController
   end
 
   def show
+    @dog = Dog.find(params[:id])
   end
 
   private

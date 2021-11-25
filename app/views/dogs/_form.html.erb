@@ -1,0 +1,9 @@
+<%= simple_form_for [@dog] do |f| %>
+  <%= f.input :name%>
+  <%= f.input :dog_size %>
+  <%= f.input :diet %>
+  <%= f.input :breed %>
+  <%= f.input :desexed %>
+  <%= f.input :vaccination_status%>
+  <%= f.submit class:"btn btn-primary w-100" %>
+<% end %>
