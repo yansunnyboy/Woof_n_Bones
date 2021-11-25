@@ -1,15 +1,27 @@
-<div class="banner" style="height: 500px; background-color: #EDE6CB">
+<div class="bg-primary d-flex">
+  <div class="m-5">
+  <h3>Doggy Daycare In The Click Of A Button</h3>
+    <div class="icon">
+      <span class="dot" style="background-color:#FFA957">
+      </span>
+    </div>
+  </div>
+  <div class="card-container">
+
+  </div>
+</div>
+
+<%# <div class="banner" style="height: 500px; background-color: #EDE6CB"> %>
   <div class="container">
     <div class="center">
-      <p style="text-align:center;"> Enter your address here: </p>
+      <p style="text-align:center;">... start your search today:</p>
       <input class="form-control mr-sm-2" type="search" aria-label="Search">
       <%= link_to 'Search', centres_path, class: "btn btn-outline-secondary my-2 my-sm-0" %>
     </div>
   </div>
-</div>
-<div class="container">
-  <div class="card">
-  <div class="icon">
+<%# </div> %>
+<div class="card card-floating">
+  <div class="icon col d-flex justify-content-center ">
    <span class="dot" style="background-color:#393E5B">
     <%= image_tag "icons8-dog-park-100.png", class:"image", alt: "dog image" %>
     </span>
@@ -17,12 +29,51 @@
   <div class="title">DAYCARE</div>
   <div class="features">
     <p>
-     Have you got a day care centre of home
-were etc etc etc  got a day care centre of home
-were etc etc etc got a day care centre of home
-were etc etc etc
+     For all your daycare needs, wheather it is being a host or finding a centre
     </p>
   </div><!--/features-->
- <a href="#" class="btn">MANAGE DAYCARE</a>
+  <%= link_to "Find Daycare",
+              centres_path,
+              class:"btn-primary btn",
+              data: {}
+              %>
 </div><!--/card-->
-</div>
+
+<div class="card card-floating">
+  <div class="icon col d-flex justify-content-center ">
+   <span class="dot centre" style="background-color: #FFA957">
+   <%= image_tag "icons8-guard-dog-100.png", alt: "dog image" %>
+   </span>
+
+   <span class="image" ></span>
+    </div><!--/icon-->
+  <div class="title">DOGS</div>
+  <div class="features">
+    <p>
+     Register your dogs and help us find you a doggy day care today!
+    </p>
+  </div><!--/features-->
+ <%= link_to "Register your Dog",
+              new_dog_path,
+              class:"btn-primary btn",
+              data: {}
+              %>
+</div><!--/card-->
+<div class="card card-floating">
+  <div class="icon col d-flex justify-content-center">
+   <span class="dot" style="background-color: #FF6053">
+    <%= image_tag "icons8-pet-100.png", alt: "dog image" %>
+    </span>
+    </div><!--/icon-->
+  <div class="title">BOOKINGS</div>
+  <div class="features">
+    <p>
+     Need to book in a hurry let us hook you up with a great daycare centre today!
+    </p>
+  </div><!--/features-->
+ <%= link_to "Book today",
+              bookings_path,
+              class:"btn-primary btn",
+              data: {}
+              %>
+</div><!--/card-->
