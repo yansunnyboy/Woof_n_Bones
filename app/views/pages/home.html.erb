@@ -1,79 +1,111 @@
-<div class="bg-primary d-flex">
+<div class="d-flex" style="background-color:#EDE6CB">
   <div class="m-5">
-  <h3>Doggy Daycare In The Click Of A Button</h3>
     <div class="icon">
       <span class="dot" style="background-color:#FFA957">
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_kehwtvbf.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
       </span>
     </div>
   </div>
-  <div class="card-container">
+</div>
 
+<div class="container">
+  <div class="center">
+    <p style="text-align:left;">Doggy Daycare with a click of a button</p>
+      <%= link_to "Find NOW",
+         centres_path,
+         class:"btn-info btn",
+        data: {}
+         %>
   </div>
 </div>
 
-<%# <div class="banner" style="height: 500px; background-color: #EDE6CB"> %>
-  <div class="container">
-    <div class="center">
-      <p style="text-align:center;">... start your search today:</p>
-      <input class="form-control mr-sm-2" type="search" aria-label="Search">
-      <%= link_to 'Search', centres_path, class: "btn btn-outline-success my-2 my-sm-0" %>
-    </div>
-  </div>
-<%# </div> %>
-<div class="card card-floating">
-  <div class="icon col d-flex justify-content-center ">
-   <span class="dot" style="background-color:#393E5B">
-    <%= image_tag "icons8-dog-park-100.png", class:"image", alt: "dog image" %>
+<div class="card-container bg-primary">
+    <div class="card card-floating">
+      <div class="icon col d-flex justify-content-center ">
+      <span class="dot" style="background-color:#393E5B">
+        <%= image_tag "icons8-dog-park-100.png", class:"image", alt: "dog image" %>
+        </span>
+        </div><!--/icon-->
+      <div class="title">DAYCARE</div>
+      <div class="features">
+        <p>
+        For all your daycare needs, wheather it is being a host or finding a centre
+        </p>
+      </div><!--/features-->
+      <% if user_signed_in? %>
+        <%= link_to "Find Daycare",
+                  centres_path,
+                  class:"btn-info btn",
+                  data: {}
+                  %>
+      <% else %>
+          <%= link_to "Find Daycare",
+                  centres_path,
+                  class:"btn-info btn",
+                  data: {}
+                  %>
+      <%end%>
+    </div><!--/card-->
+
+  <div class="card card-floating">
+    <div class="icon col d-flex justify-content-center ">
+    <span class="dot centre" style="background-color: #FFA957">
+    <%= image_tag "icons8-guard-dog-100.png", alt: "dog image" %>
     </span>
-    </div><!--/icon-->
-  <div class="title">DAYCARE</div>
-  <div class="features">
-    <p>
-     For all your daycare needs, wheather it is being a host or finding a centre
-    </p>
-  </div><!--/features-->
-  <%= link_to "Find Daycare",
-              centres_path,
-              class:"btn-info btn",
-              data: {}
-              %>
+
+    <span class="image" ></span>
+      </div><!--/icon-->
+    <div class="title">DOGS</div>
+    <div class="features">
+      <p>
+      Register your dogs and help us find you a doggy day care today!
+      </p>
+    </div><!--/features-->
+    <% if user_signed_in? %>
+      <%= link_to "Register your Dog",
+                new_dog_path,
+                class:"btn-info btn",
+                data: {}
+                %>
+    <% else %>
+        <%= link_to "Register your Dog",
+                new_user_registration_path,
+                class:"btn-info btn",
+                data: {}
+                %>
+    <%end%>
+  </div><!--/card-->
+
+
+
+
+
+  <div class="card card-floating">
+    <div class="icon col d-flex justify-content-center">
+    <span class="dot" style="background-color: #FF6053">
+      <%= image_tag "icons8-pet-100.png", alt: "dog image" %>
+      </span>
+      </div><!--/icon-->
+    <div class="title">BOOKINGS</div>
+    <div class="features">
+      <p>
+      Need to book in a hurry let us hook you up with a great daycare centre today!
+      </p>
+    </div><!--/features-->
+    <% if user_signed_in? %>
+      <%= link_to "Book Today",
+                bookings_path,
+                class:"btn-info btn",
+                data: {}
+                %>
+    <% else %>
+        <%= link_to "Book Today",
+                new_user_registration_path,
+                class:"btn-info btn",
+                data: {}
+                %>
+    <%end%>
 </div><!--/card-->
 
-<div class="card card-floating">
-  <div class="icon col d-flex justify-content-center ">
-   <span class="dot centre" style="background-color: #FFA957">
-   <%= image_tag "icons8-guard-dog-100.png", alt: "dog image" %>
-   </span>
-
-   <span class="image" ></span>
-    </div><!--/icon-->
-  <div class="title">DOGS</div>
-  <div class="features">
-    <p>
-     Register your dogs and help us find you a doggy day care today!
-    </p>
-  </div><!--/features-->
- <%= link_to "Register your Dog",
-              new_dog_path,
-              class:"btn-info btn",
-              data: {}
-              %>
-</div><!--/card-->
-<div class="card card-floating">
-  <div class="icon col d-flex justify-content-center">
-   <span class="dot" style="background-color: #FF6053">
-    <%= image_tag "icons8-pet-100.png", alt: "dog image" %>
-    </span>
-    </div><!--/icon-->
-  <div class="title">BOOKINGS</div>
-  <div class="features">
-    <p>
-     Need to book in a hurry let us hook you up with a great daycare centre today!
-    </p>
-  </div><!--/features-->
- <%= link_to "Book today",
-              bookings_path,
-              class:"btn-info btn",
-              data: {}
-              %>
-</div><!--/card-->
+</div>

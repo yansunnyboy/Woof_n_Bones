@@ -1,21 +1,38 @@
-<div class="container-fluid bg-primary ">
-<div class="bg-primary d-flex">
-  <h2><%= @centre.name %></h2>
-  <div class="m-5">
-    <div class="icon">
+<div class="container-fluid bg-info" style="padding-top: 40px; padding-bottom: 40px; margin-right: 40px; margin-left: 40px; margin-top: 40px;">
+  <div class="row">
+    <div class="col-sm d-flex justify-content-center">
+      <h2><%= @centre.name %> Doggy Day Care Centre</h2>
+    </div>
+    <div class="col-sm d-flex justify-content-center">
+     <ul>
+      <li>Location<%= @centre.location %></li>
+      <li><%= @centre.capacity %> Doggy centre</li>
+      <li>Call:<%= @centre.phone_number %></li>
+      <li>"incredible centre with friendly staff!"</li>
+     </ul>
+    </div>
+    <div class="icon col-sm d-flex justify-content-center">
       <span class="dot" style="background-color:#393E5B">
-        <%= image_tag "icons8-dog-park-100.png", class:"image", alt: "dog image" %>
+          <%= image_tag "icons8-dog-park-100.png", class:"image", alt: "dog image" %>
       </span>
     </div>
   </div>
 
+  <div class="container p3">
+    <div class="row">
+      <div class="col">
 
-<%= simple_form_for([@centre, @booking]) do |f| %>
-  <%= f.association :dog, collection: Dog.where(user: current_user) %>
-  <%= f.input :booking_date, as: :string, input_html:{id: 'flatpickr'} %>
-  <%= f.submit %>
-<% end %>
-</div>
+      </div>
+      <div class="col-5 d-flex justify-content-center">
+        <%= simple_form_for([@centre, @booking]) do |f| %>
+          <%= f.association :dog, collection: Dog.where(user: current_user) %>
+          <%= f.input :booking_date, as: :string, input_html:{id: 'flatpickr'} %>
+          <%= f.submit :Submit, class: 'btn btn-success'%>
+          <% end %>
+      </div>
+      <div class="col">
 
-
+      </div>
+    </div>
+  </div>
 </div>
