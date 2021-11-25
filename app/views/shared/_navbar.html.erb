@@ -19,7 +19,7 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Bookings", bookings_path, class: "dropdown-item" %>
             <%= link_to "Dogs", dogs_path, class: "dropdown-item" %>
-            <%= link_to "Centres", centres_path, class: "dropdown-item" %>
+            <%= link_to "Centres", user_centres_path(current_user.id), class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
 
           </div>

@@ -2,6 +2,7 @@ class CentresController < ApplicationController
   before_action :set_centre, only: %i[show edit update destroy]
 
   def index
+    @user = User.where(id: current_user.id) if user_signed_in?
     @centres = Centre.all
   end
 
