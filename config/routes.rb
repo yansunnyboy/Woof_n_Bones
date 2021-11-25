@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[new create]
   end
   authenticated :user do
+    get "/", to: redirect("/pages")
     resources :bookings, only: %i[update edit destroy show index]
     resources :dogs
     resources :users, only: %i[show] do
