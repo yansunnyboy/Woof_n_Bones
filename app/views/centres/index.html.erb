@@ -4,7 +4,7 @@
     <div class="m-5">
       <div class="icon">
         <span class="dot" style="background-color:#393E5B">
-          <%= image_tag "icons8-dog-park-100.png", class:"image", alt: "dog image" %>
+          <%= image_tag "icons8-guard-dog-100.png", class:"image", alt: "dog image" %>
         </span>
         <% if user_signed_in? %>
           <div class="card w-75">
@@ -16,10 +16,11 @@
       <div class="card-container">
       <% @centres.each do |centre| %>
         <% if user_signed_in? == false %>
-          <div class="card w-75">
+          <div class="card w-75 bg-info">
             <div class="card-body">
               <h5 class="card-title"><%= centre.name%></h5>
               <p class="card-text"><%= centre.location%></p>
+              <p class="card-text"><%= centre.capacity%><%= image_tag "icons8-dog-park-100.png", class:"image", alt: "dog image" %></p>
               <div class="d-flex">
                   <%= link_to "Book Now", centre_path(centre), class:"btn btn-success" %>
               </div>
