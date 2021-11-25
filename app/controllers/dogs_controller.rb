@@ -13,7 +13,7 @@ class DogsController < ApplicationController
     @dog = Dog.new(dog_params)
     @dog.user_id = current_user.id
     if @dog.save
-      redirect_to root_path, notice: 'Dog was successfully added.'
+      redirect_to dogs_path, notice: 'Dog was successfully added.'
     else
       render :new
     end

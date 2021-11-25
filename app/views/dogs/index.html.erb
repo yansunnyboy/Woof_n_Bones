@@ -5,6 +5,13 @@
       <span class="dot" style="background-color:#393E5B">
         <%= image_tag "icons8-dog-park-100.png", class:"image", alt: "dog image" %>
       </span>
+      <div class="card w-75">
+      <%= link_to "Add a new Dog!",
+              new_dog_path,
+              class:"btn btn-primary",
+              data: {}
+              %>
+              </div>
     </div>
   </div>
   <div class="card-container">
@@ -19,7 +26,7 @@
           <%= link_to "Update Details",
               dog_path(dog),
               class:"btn btn-primary",
-              data: {confirm: "Are you sure?"}
+              data: {}
               %>
 
           </div>
