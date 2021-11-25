@@ -33,6 +33,9 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'bootstrap', '~> 5.1.3'
 
+# QR code generation
+gem 'rqrcode', '~> 2.0'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'

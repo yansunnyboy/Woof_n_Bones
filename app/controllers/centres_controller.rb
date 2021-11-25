@@ -11,6 +11,18 @@ class CentresController < ApplicationController
     @dog = Dog.find(params[:id])
     @users = User.all
     @booking = Booking.new
+    url = centre_url(params[:id])
+    url = "https://www.youtube.com/watch?v=iik25wqIuFo"
+    url = "http://bit.do/woofnbone"
+    qrcode = RQRCode::QRCode.new(url)
+    @qr_svg = qrcode.as_svg(
+      color: '212121',
+      shape_rendering: 'crispEdges',
+      module_size: 11,
+      standalone: true,
+      use_path: true,
+      viewbox: '0 0 500 500'
+    )
   end
 
   def new
