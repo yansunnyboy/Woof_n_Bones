@@ -8,8 +8,8 @@
         <%= simple_form_for [@user, @dog] do |f| %>
           <%= f.input :name, placeholder: "What is your dog's name?" %>
           <%= f.input :dog_size, placeholder: 'What is the size of your dog?' %>
-          <%= f.input :diet, placeholder: 'What is the size of your dog?' %>
-          <%= f.input :breed, placeholder: 'What is the size of your dog?' %>
+          <%= f.input :diet, placeholder: "What is your dog's diet?" %>
+          <%= f.input :breed, placeholder: "What is your dog's breed?" %>
           <%= f.input :desexed, as: :boolean, boolean_style: :inline, placeholder: "Is your dog disexed?" %>
           <%= f.input :vaccination_status, as: :boolean, boolean_style: :inline, placeholder: "Is your dog vaccinated?" %>
           <%= f.submit class: 'btn btn-flat' %>
