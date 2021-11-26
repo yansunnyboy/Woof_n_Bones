@@ -51,7 +51,9 @@ class CentresController < ApplicationController
 
   def bookings
     @bookings = @centre.bookings.joins(:dog).where(dog: { user_id: current_user.id })
-    @user = User.find(params[id: current_user.id])
+    @user = User.where(params[id: current_user.id])
+    @booking = Booking.where(centre_id: @centre.id)
+    @centres = Centre.all
   end
 
   def centres
