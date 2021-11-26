@@ -1,19 +1,39 @@
 <div class="container-fluid bg-info" style="padding-top: 40px; padding-bottom: 40px; margin-right: 40px; margin-top: 40px;">
   <div class="row">
     <div class="col-sm d-flex justify-content-center">
-      <h2><%= @centre.name %> Doggy Day Care Centre</h2>
-    </div>
-    <div class="col-sm d-flex justify-content-center">
-     <ul>
-      <li>Location<%= @centre.location %></li>
-      <li><%= @centre.capacity %> Doggy centre</li>
-      <li>Call:<%= @centre.phone_number %></li>
-      <li>"incredible centre with friendly staff!"</li>
-     </ul>
+      <div class="card-container">
+        <div class="card w-75 bg-success">
+          <div class="card-body">
+           <div class="display-4"><%= @centre.name%></div>
+            <p class="card-text"><%= @centre.location%></p>
+            <p>Our Day Care Can Have</p>
+            <div class="d-flex justify-content-center"><script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_m3lpL4.json"  background="transparent" alignment="centre" speed="1"  style="width: 100px; height: 100px;"  loop  autoplay></lottie-player></div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="icon col-sm d-flex justify-content-center">
+      <% if user_signed_in? %>
+      <div class="col-5 d-flex justify-content-center">
+        <%= simple_form_for([@centre, @booking]) do |f| %>
+          <%= f.association :dog, collection: Dog.where(user: current_user) %>
+          <%= f.input :booking_date, as: :string, input_html:{id: 'flatpickr'} %>
+          <%= f.submit :Submit, class: 'btn btn-success'%>
+          <% end %>
+      </div>
+      <% else %>
+      <div>
+        <%= link_to "Join Today",
+                  new_user_registration_path,
+                  class:"btn-success btn",
+                  data: {}
+                  %>
+        </div>
+        <%end%>
+
       <span class="dot" style="background-color:#393E5B">
-          <%= image_tag "icons8-dog-park-100.png", class:"image", alt: "dog image" %>
+          <%= image_tag "icons8-pet-100.png", class:"image", alt: "dog image" %>
       </span>
     </div>
   </div>
@@ -22,16 +42,10 @@
     <div class="row">
       <div class="col">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#qrShareWithFriendsModal">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#qrShareWithFriendsModal">
           Share with Friends
         </button>
-      </div>
-      <div class="col-5 d-flex justify-content-center">
-        <%= simple_form_for([@centre, @booking]) do |f| %>
-          <%= f.association :dog, collection: Dog.where(user: current_user) %>
-          <%= f.input :booking_date, as: :string, input_html:{id: 'flatpickr'} %>
-          <%= f.submit :Submit, class: 'btn btn-success'%>
-          <% end %>
+
       </div>
       <div class="col">
 
