@@ -31,6 +31,7 @@ class CentresController < ApplicationController
 
   def create
     @centre = Centre.new(centre_params)
+    @centre.user_id = current_user.id
     @centre.save
     redirect_to user_centres_path(user_id: current_user.id)
   end

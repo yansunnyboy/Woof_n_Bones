@@ -30,14 +30,18 @@
             </div>
           </div>
         <% elsif user_signed_in? && (centre.user_id == @user.first.id) %>
-          <div class="card w-75">
+        <div class="card w-75 bg-info">
             <div class="card-body">
-              <h5 class="card-title"><%= centre.name%></h5>
+              <div class="display-4"><%= centre.name%></div>
               <p class="card-text"><%= centre.location%></p>
-              <div class="d-flex">
+              <p>Our Day Care Can Have</p>
+              <div class="d-flex justify-content-center"><script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+              <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_m3lpL4.json"  background="transparent" alignment="centre" speed="1"  style="width: 100px; height: 100px;"  loop  autoplay></lottie-player></div>
+              <div class="d-flex justify-content-center"><%= centre.capacity%> Dogs!</div>
                   <%= link_to "View Bookings", bookings_centre_path(centre.id) , class:"btn btn-info" %>
                   <%= link_to "Edit Daycare", edit_centre_path(centre.id) , class:"btn btn-warning" %>
                   <%= link_to "Delete Daycare", centre_path(centre.id), method: :delete , class:"btn btn-danger" %>
+              <div class="d-flex">
               </div>
             </div>
           </div>
