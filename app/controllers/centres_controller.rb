@@ -4,6 +4,17 @@ class CentresController < ApplicationController
   def index
     @user = User.where(id: current_user.id) if user_signed_in?
     @centres = Centre.all
+    url = "https://www.youtube.com/watch?v=iik25wqIuFo"
+    url = "http://bit.do/woofnbone"
+    qrcode = RQRCode::QRCode.new(url)
+    @qr_svg = qrcode.as_svg(
+      color: '212121',
+      shape_rendering: 'crispEdges',
+      module_size: 11,
+      standalone: true,
+      use_path: true,
+      viewbox: '0 0 500 500'
+    )
   end
 
   def show
@@ -50,7 +61,7 @@ class CentresController < ApplicationController
   end
 
   def bookings
-    @bookings = @centre.bookings.joins(:dog).where(dog: { user_id: current_user.id })
+    @bookings = @centre.bookings.joins(:dog)
     @user = User.where(params[id: current_user.id])
     @booking = Booking.where(centre_id: @centre.id)
     @centres = Centre.all
