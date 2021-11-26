@@ -1,7 +1,7 @@
 <div class="bg-primary d-flex">
   <div class="m-5">
   <h2>Bookings at <%= @centres.find(params[:id]).name %></h2>
-    <div class="icon">
+    <div class="icon m-5">
       <span class="dot" style="background-color:#393E5B">
         <%= image_tag "icons8-dog-park-100.png", class:"image", alt: "dog image" %>
       </span>
@@ -9,17 +9,17 @@
   </div>
 <% @bookings.each do |booking| %>
   <div class="card-container">
-    <div class="card w-75">
+    <div class="card w-75 bg-info">
       <div class="card-body">
-        <h5 class="card-title"><%= booking.booking_date %></h5>
-        <p class="card-text"><%= @user.first.first_name %> <%= @user.first.last_name %></p>
-        <p class="card-text"><%= booking.dog.name %></p>
-        <img src="https://placedog.net/100/100?random" width="100" height="100">
-          <div class="d-flex ">
-          <%= link_to "Cancel",
+        <h5 class="card-title">Booking date: <%= booking.booking_date %></h5>
+        <p class="card-text">Dog: <%= booking.dog.name %></p>
+        <p class="card-text">Breed: <%= booking.dog.breed %></p>
+        <img class="rounded-circle" src="https://placedog.net/100/100?random" width="100" height="100">
+          <div class="d-flex justify-content-center">
+          <%= link_to "Reject booking",
               booking_path(booking),
               method: :delete,
-              class:"btn btn-primary",
+              class:"btn btn-danger",
               data: { confirm: "Are you sure?" } %>
           </div>
         </div>
