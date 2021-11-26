@@ -4,7 +4,7 @@
     <div class="m-5">
       <div class="icon">
         <span class="dot" style="background-color:#393E5B">
-          <%= image_tag "icons8-dog-park-100.png", class:"image", alt: "dog image" %>
+          <%= image_tag "icons8-guard-dog-100.png", class:"image", alt: "dog image" %>
         </span>
         <% if user_signed_in? %>
           <div class="card w-75">
@@ -16,12 +16,16 @@
       <div class="card-container">
       <% @centres.each do |centre| %>
         <% if user_signed_in? == false %>
-          <div class="card w-75">
+          <div class="card w-75 bg-info">
             <div class="card-body">
-              <h5 class="card-title"><%= centre.name%></h5>
+              <div class="display-4"><%= centre.name%></div>
               <p class="card-text"><%= centre.location%></p>
-              <div class="d-flex">
+              <p>Our Day Care Can Have</p>
+              <div class="d-flex justify-content-center"><script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+              <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_m3lpL4.json"  background="transparent" alignment="centre" speed="1"  style="width: 100px; height: 100px;"  loop  autoplay></lottie-player></div>
+              <div class="d-flex justify-content-center"><%= centre.capacity%> Dogs!</div>
                   <%= link_to "Book Now", centre_path(centre), class:"btn btn-success" %>
+              <div class="d-flex">
               </div>
             </div>
           </div>
