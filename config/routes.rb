@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get '/centres/centres', to: 'centres#centres', as: 'allcentres'
   resources :centres do
     resources :bookings, only: %i[new create]
+    member do
+      get :bookings
+    end
   end
   authenticated :user do
     resources :bookings, only: %i[update edit destroy show index]

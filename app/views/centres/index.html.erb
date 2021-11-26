@@ -26,13 +26,12 @@
             </div>
           </div>
         <% elsif user_signed_in? && (centre.user_id == @user.first.id) %>
-
           <div class="card w-75">
             <div class="card-body">
               <h5 class="card-title"><%= centre.name%></h5>
               <p class="card-text"><%= centre.location%></p>
               <div class="d-flex">
-                  <%= link_to "View Bookings", centre_path(centre) , class:"btn btn-info" %>
+                  <%= link_to "View Bookings", bookings_centre_path(centre.id) , class:"btn btn-info" %>
                   <%= link_to "Edit Daycare", edit_centre_path(centre.id) , class:"btn btn-warning" %>
                   <%= link_to "Delete Daycare", centre_path(centre.id), method: :delete , class:"btn btn-danger" %>
               </div>

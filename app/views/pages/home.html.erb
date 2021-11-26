@@ -13,9 +13,9 @@
   <div class="center">
     <p style="text-align:left;">Doggy Daycare with a click of a button</p>
       <%= link_to "Find NOW",
-         centres_path,
+         allcentres_path,
          class:"btn-info btn",
-        data: {}
+         data: {}
          %>
   </div>
 </div>
@@ -34,18 +34,18 @@
         </p>
       </div><!--/features-->
       <% if user_signed_in? %>
-        <%= link_to "Find Daycare",
-                  centres_path,
-                  class:"btn-info btn",
-                  data: {}
-                  %>
+      <%= link_to "Find Daycare",
+                allcentres_path,
+                class:"btn-info btn",
+                data: {}
+                %>
       <% else %>
-          <%= link_to "Find Daycare",
-                  centres_path,
-                  class:"btn-info btn",
-                  data: {}
-                  %>
-      <%end%>
+      <%= link_to "Find Daycare",
+                new_user_registration_path,
+                class:"btn-info btn",
+                data: {}
+                %>
+    <%end%>
     </div><!--/card-->
 
   <div class="card card-floating">

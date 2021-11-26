@@ -1,5 +1,5 @@
 class CentresController < ApplicationController
-  before_action :set_centre, only: %i[show edit update destroy]
+  before_action :set_centre, only: %i[show edit update destroy bookings]
 
   def index
     @user = User.where(id: current_user.id) if user_signed_in?
@@ -46,6 +46,16 @@ class CentresController < ApplicationController
   end
 
   def edit
+  end
+
+  def bookings
+    @bookings = @centre.bookings.joins(:dog).where(dog: { user_id: current_user.id })
+    @user = User.find(params[id: current_user.id])
+  end
+
+  def centres
+    @user = User.where(id: current_user.id) if user_signed_in?
+    @centres = Centre.all
   end
 
   private
