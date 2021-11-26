@@ -1,28 +1,23 @@
 <div class="d-flex" style="background-color:#EDE6CB">
-  <div class="m-5">
-    <div class="icon">
-      <span class="dot" style="background-color:#FFA957">
+  <div class="container">
+    <div class="m-5 p-5">
+      <div class="icon d-flex justify-content-center">
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
         <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_kehwtvbf.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
-      </span>
+      </div>
     </div>
   </div>
-</div>
-
-<div class="container">
+  <div>
+    <p class="center">Doggy Daycare with the click of a button</p>
+  </div>
   <div class="center">
-    <p style="text-align:left;">Doggy Daycare with a click of a button</p>
-      <%= link_to "Find NOW",
-         allcentres_path,
-         class:"btn-info btn",
-         data: {}
-         %>
+      <%= link_to "FIND NOW", allcentres_path, class:"btn-info btn d-flex justify-content-center p-3", data: {} %>
   </div>
 </div>
 
 <div class="card-container bg-primary">
-    <div class="card card-floating">
-      <div class="icon col d-flex justify-content-center ">
+    <div class="card card-floating col-3.5 mx-3.5">
+      <div class="icon col d-flex justify-content-center">
       <span class="dot" style="background-color:#393E5B">
         <%= image_tag "icons8-dog-park-100.png", class:"image", alt: "dog image" %>
         </span>
@@ -48,7 +43,7 @@
     <%end%>
     </div><!--/card-->
 
-  <div class="card card-floating">
+  <div class="card card-floating col-3.5 mx-3.5">
     <div class="icon col d-flex justify-content-center ">
     <span class="dot centre" style="background-color: #FFA957">
     <%= image_tag "icons8-guard-dog-100.png", alt: "dog image" %>
@@ -81,7 +76,7 @@
 
 
 
-  <div class="card card-floating">
+  <div class="card card-floating col-3.5 mx-3.5">
     <div class="icon col d-flex justify-content-center">
     <span class="dot" style="background-color: #FF6053">
       <%= image_tag "icons8-pet-100.png", alt: "dog image" %>
