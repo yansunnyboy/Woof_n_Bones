@@ -3,19 +3,21 @@
   <h2>Your Upcoming Bookings....</h2>
     <div class="icon">
       <span class="dot" style="background-color:#393E5B">
-        <%= image_tag "icons8-dog-park-100.png", class:"image", alt: "dog image" %>
+        <%= image_tag "icons8-guard-dog-100.png", class:"image", alt: "dog image" %>
       </span>
     </div>
   </div>
+
   <div class="card-container">
-    <% @bookings.each do |booking|%>
-      <div class="card w-75">
-        <div class="card-body">
-          <h5 class="card-title"><%= booking.booking_date %> at <%= booking.centre.name %></h5>
-          <p class="card-text"><%= booking.dog.name %></p>
-        <img src="https://placedog.net/100/100?random" width="100" height="100">
+      <% @bookings.each do |booking|%>
+    <div class="card w-75 bg-info">
+      <div class="card-body">
+        <div class="card-text"><%= booking.booking_date %> at</div>
+        <div class="display-4"><%= booking.centre.name %></div>
+            <p class="card-text">Booking for <%= booking.dog.name %></p>
+            <img src="https://placedog.net/100/100?random" width="100" height="100">
           <div class="d-flex ">
-          <%= link_to "Cancel",
+          <%= link_to "Cancel Booking",
               booking_path(booking),
               method: :delete,
               class:"btn btn-primary",
